@@ -1,4 +1,4 @@
-// src/parser.js
+// src/core/parser.js
 function parseDiff(diff) {
     const files = diff.split('diff --git');
     const changedFiles = [];
@@ -6,12 +6,11 @@ function parseDiff(diff) {
     for (const file of files) {
         if (!file) continue;
 
-        const lines = file.split('
-');
-        const fileNameLine = lines.find(line => line.startsWith(' b/'));
+        const lines = file.split('\n');
+        const fileNameLine = lines.find(line => line.startsWith('+++ b/'));
         if (!fileNameLine) continue;
 
-        const fileName = fileNameLine.substring(3);
+        const fileName = fileNameLine.substring(6);
         const addedLines = [];
         let lineNumber = 0;
 

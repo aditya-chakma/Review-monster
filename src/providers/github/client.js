@@ -1,4 +1,4 @@
-// src/github.js
+// src/providers/github/client.js
 require('dotenv').config();
 const { Octokit } = require('@octokit/rest');
 const jwt = require('jsonwebtoken');

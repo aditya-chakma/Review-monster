@@ -1,4 +1,4 @@
-// src/ai.js
+// src/core/ai.js
 require('dotenv').config();
 
 const apiKey = process.env.AI_API_KEY;
